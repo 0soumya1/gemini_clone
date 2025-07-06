@@ -1,22 +1,19 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import GeminiChat from './src/GeminiChat';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
+
     <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
+      {Platform.OS === "android" && (
+        <StatusBar
+          backgroundColor={"#fff"}
+          barStyle="dark-content"
+        />
+      )}
+      <GeminiChat />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
